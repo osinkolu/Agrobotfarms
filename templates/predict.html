@@ -1,0 +1,63 @@
+{% extends "base.html" %} {% block title %} Agrobot A.I - Predict {% endblock %}
+{% block styleLink %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', path='predict.css') }}"
+/>
+{% endblock %} {% block content %}
+<main
+  class="main container-fluid d-flex flex-column p-lg-5 p-3 justify-content-center align-items-center" style="background-image: url(web_images/lukasz-szmigiel-gmsiVT5sfl0-unsplash-min.jpg);
+  background-position: bottom;"
+>
+<style>
+  
+</style>
+  <h2 class="my-3 text-center">Analysis Completed!</h2>
+  <div class="container m-lg-5 m-3">
+    <div class="container">
+      <div class="row result-wrapper">
+        <div
+          class="col-md-6 col-12 px-0 d-flex flex-column justify-content-center align-items-center output-wrapper"
+        >
+          <div class="container-fluid img-wrapper">
+            <img src="{{ user_image }}" id="output" />
+          </div>
+        </div>
+        <div
+          class="col-md-6 col-12 p-lg-5 p-3 d-flex flex-column justify-content-evenly align-items-start result-text-wrapper"
+        >
+          <div class="result-text d-flex flex-column">
+            <p>Results</p>
+            <div class="d-flex flex-column">
+              <span>Found: &nbsp;</span>
+              <span>{{ resultText }}</span>
+            </div>
+            <!-- put resultText here-->
+            <div class="d-flex flex-column">
+              <span>Brief: &nbsp;</span>
+              <span>{{ prediction_text }}</span>
+            </div>
+            <!-- put prediction text here -->
+          </div>
+          <!-- link back to home-->
+          <a
+            href="http://127.0.0.1:8000/"
+            class="my-sm-5 btn btn-lg cta-btn btn-outline-light align-self-end"
+            >Analyse Another Crop</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+  const mainEl = document.querySelector(".main");
+
+  // smooth animation for loaded effect
+  setTimeout(() => {
+    mainEl.style.opacity = "1";
+    mainEl.style.transform = "translateY(0)";
+  }, 750);
+</script>
+{% endblock %}

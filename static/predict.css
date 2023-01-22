@@ -1,0 +1,103 @@
+@import url("config.css");
+
+body {
+  background-image: url("web_images/lukasz-szmigiel-gmsiVT5sfl0-unsplash-min.jpg");
+  background-position: bottom;
+  /* position: relative; */
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+main {
+  /* positoning */
+  position: relative;
+  z-index: 200;
+
+  /* initally hide main for transtion */
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 500ms ease-in, transform 500ms ease-in;
+}
+
+main > h2 {
+  font-size: var(--font-size-xl);
+  color: #fff;
+}
+
+.result-wrapper {
+  border-radius: 1.25rem;
+  width: 100%;
+  height: 37.5rem;
+}
+
+.result-text {
+  font-size: var(--font-size-600);
+  margin-bottom: 50px;
+}
+
+.result-text p {
+  font-size: calc(var(--font-size-600) + 0.625rem);
+  filter: brightness(0.8);
+  margin-bottom: 120px;
+}
+
+.result-text span {
+  filter: brightness(2);
+  font-size: 22px;
+}
+
+.result-text-wrapper {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.output-wrapper {
+  height: 100% !important;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: var(--primary-color);
+}
+
+.img-wrapper,
+.img-wrapper > img {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-top-right-radius: 20%;
+  border-bottom-right-radius: 20%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+@media (max-width: 48rem) {
+  .result-wrapper {
+    height: max-content;
+  }
+
+  .result-text-wrapper {
+    border-bottom-left-radius: 20px;
+    /* border-bottom-right-radius: 20px; */
+    border-top-right-radius: 0;
+  }
+  .output-wrapper {
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0;
+  }
+
+  .img-wrapper,
+  .img-wrapper > img {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 0;
+  }
+}

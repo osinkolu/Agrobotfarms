@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Agrobot A.I </title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='about_me.css') }}">
+</head>
+<body>
+  <div class="top-container">
+     <div class="contents">
+       Agrobot A.I
+      </div>
+  </div>
+
+Hi folks, A machine learning model which i've trained makes the predictions here...............TADA!!!
+<p>
+	</p>
+<body>
+ <div class="largecontents">
+  <h1>What disease is affecting my crop? </h1>
+
+  <!-- Main Part of the code that speaks with the Flask API--> 
+
+  <img height="256" src="{{ user_image }}" id="output"/>   <!-- This is where the image sits-->
+  <p> </p>
+    <div>
+    <form action="{{ url_for('predict')}}"method="post" enctype="multipart/form-data">
+  <label>Upload the image</label>
+
+
+  <input type="file" name=file accept="image/*" onchange="loadFile(event)">
+  <div class="text">set he threshold</div>
+  <input type="number" name=threshold placeholder="Threshold for prediction" value= "0.5" required="required" size="70" height="40" />
+
+
+  <!-- The header details that the API will need-->
+  <div class="input-row">
+    <select name="use_case">
+      <option value=crop_disease> crop disease </option>
+      <option value=weeds> weed detection </option>
+      <option value=fruit_harvest> Fruit recognition </option>
+    </select>
+    </div>
+    <div class="text">Select the usecase</div>
+
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+</script>
+
+
+ </div>
+    <br>
+    <br>
+    <div>
+            <button type="submit">Predict info</button>
+
+    </div>
+    
+
+    </form>
+
+       <br>
+   <br>
+   {{ prediction_text }}
+
+
+    <p> </p>
+   <p> </p>
+
+
+      Tools:
+   <p> </p>
+   <div class="image-row">
+    <img id="image" src= "{{ url_for('static', path='web_images/colab.png') }}">
+    <img id="image" src= "{{ url_for('static', path='web_images/opencv.png') }}">
+  </div>
+
+</div>
+
+  </div>
+<p> </p>
+</body>
+</html>

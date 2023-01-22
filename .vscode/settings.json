@@ -1,0 +1,7 @@
+{
+  "python.defaultInterpeterPath": "C:\\Users\\Juwon\\anaconda3\\python.exe",
+  "python.terminal.activateEnvironment": true,
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe"
+}
+
+// This is depecated, the new recommended way to configure your default shell is by creating a terminal pofile in `#terminal.integrated.pofiles.windows#` and setting its pofile name as the default in `#terminal.integrated.defaultpofile.windows#`. This will currently take piority over the new pofiles settings but that will change in the future.

@@ -1,0 +1,265 @@
+@import url("config.css");
+
+/* main */
+main {
+  /* BOX STYLES */
+  background-image: url("web_images/lukasz-szmigiel-gmsiVT5sfl0-unsplash-min.jpg"),
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); /* linear gradient acts as image, used this for overlay  */
+  background-position: bottom, center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: max-content;
+  /*Get Overlay Effect  */
+  background-blend-mode: overlay;
+
+  /* text styles */
+  color: white;
+  text-align: center;
+}
+
+/* main end */
+
+.main-caption > span,
+.start-analysis > span,
+.main-heading > span {
+  color: var(--primary-color);
+  filter: brightness(1.6);
+}
+
+.main-heading {
+  font-size: var(--font-size-xl);
+}
+
+.main-caption {
+  text-align: center;
+  font-weight: 500;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: var(--font-size-600);
+  /* margin-bottom: 0 !important; */
+}
+
+.output {
+  height: 0;
+
+  transition: height 450ms ease;
+}
+.start-analysis {
+  font-size: var(--font-size-600);
+}
+
+/* form */
+.predict-form-container {
+  height: max-content;
+
+  /* glass morphism */
+  background: linear-gradient(
+    320deg,
+    var(--light-translucent-bg-25),
+    var(--light-translucent-bg-75),
+    70%,
+    var(--light-translucent-bg-25)
+  );
+  backdrop-filter: blur(10px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: inset 4px 4px 5px 0 rgba(255, 255, 255, 0.25),
+    inset -4px -4px 5px 0 rgba(0, 0, 0, 0.125), 0 0 10px 1px rgba(0, 0, 0, 0.25);
+}
+
+.form {
+  height: 100%;
+}
+
+.form-component-wrap {
+  aspect-ratio: 3/4; /* Creates a rectangle with longer vertical */
+}
+
+.indicator-icon,
+.indicator-text {
+  font-size: var(--font-size-600);
+}
+
+.indicator-icon {
+  width: 4.375rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+}
+
+.form-component-wrap-inner {
+  background-color: #fff;
+  height: 100%;
+}
+
+/* form controls */
+.form-component-wrap-inner input[type="file"] {
+  cursor: pointer;
+  width: 100%;
+}
+/* special engine renderer styles for upload btn */
+input[type="file"]::-webkit-file-upload-button {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 0.625rem;
+  border-radius: 0.625rem;
+  margin-left: 0.625rem;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  cursor: pointer;
+  background-color: transparent !important;
+  border: 1px solid var(--primary-color) !important;
+  color: var(--primary-color) !important;
+}
+
+input[type="file"]::-ms-browse {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 0.625rem;
+  border-radius: 0.625rem;
+  margin-left: 0.625rem;
+}
+
+input[type="file"]::-ms-browse:hover {
+  cursor: pointer;
+  background-color: transparent !important;
+  border: 1px solid var(--primary-color) !important;
+  color: var(--primary-color) !important;
+}
+
+input[type="file"]::file-selector-button {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 0.625rem;
+  border-radius: 0.625rem;
+  margin-left: 0.625rem;
+}
+
+input[type="file"]::file-selector-button:hover {
+  cursor: pointer;
+  background-color: transparent !important;
+  border: 1px solid var(--primary-color) !important;
+  color: var(--primary-color) !important;
+}
+
+/* set color of input file to black */
+input[type="file"] {
+  cursor: pointer;
+  color: black;
+}
+
+/* styling for rest of form controls */
+select.form-btn:focus {
+  color: #fff;
+  font-size: var(--font-size-500);
+  border-radius: 0.625rem;
+  background-color: var(--primary-color);
+}
+
+.form-btn.pop {
+  animation: grow 1000ms ease-in-out infinite;
+}
+
+@keyframes grow {
+  from {
+    box-shadow: 0 0 0 var(--primary-color);
+  }
+  to {
+    box-shadow: 0 0 50px var(--primary-color);
+  }
+}
+
+.form-btn {
+  color: #fff;
+  font-size: var(--font-size-500);
+  border-radius: 0.625rem;
+  background-color: var(--primary-color);
+}
+
+.form-btn:hover {
+  background-color: transparent !important;
+  border: 1px solid var(--primary-color) !important;
+  color: var(--primary-color) !important;
+}
+
+#submit-btn:disabled {
+  background-color: grey;
+  color: black;
+}
+
+/* modal */
+#image-modal {
+  display: none;
+}
+
+.modal-content {
+  background-color: var(--primary-color);
+}
+
+.modal-header .modal-title {
+  font-weight: 700;
+  color: #fff;
+}
+
+.modal-body p {
+  color: #fff;
+  font-size: var(--font-size-500);
+}
+
+.modal .close-modal {
+  color: var(--primary-color);
+  background-color: #fff;
+}
+
+@media (max-width: 48rem) {
+  .form-component-wrap-inner {
+    height: 6.25rem;
+  }
+}
+
+/* loadder */
+.loading {
+  display: none;
+}
+
+.loading.block {
+  height: 12.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.loader {
+  --d: 44px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  color: var(--primary-color);
+  box-shadow: calc(1 * var(--d)) calc(0 * var(--d)) 0 0,
+    calc(0.707 * var(--d)) calc(0.707 * var(--d)) 0 2px,
+    calc(0 * var(--d)) calc(1 * var(--d)) 0 4px,
+    calc(-0.707 * var(--d)) calc(0.707 * var(--d)) 0 6px,
+    calc(-1 * var(--d)) calc(0 * var(--d)) 0 8px,
+    calc(-0.707 * var(--d)) calc(-0.707 * var(--d)) 0 10px,
+    calc(0 * var(--d)) calc(-1 * var(--d)) 0 12px;
+  animation: s7 1s infinite steps(8);
+}
+
+.too-long {
+  color: #fff;
+  display: none;
+  font-size: var(--font-size-600);
+}
+
+@keyframes s7 {
+  100% {
+    transform: rotate(1turn);
+  }
+}

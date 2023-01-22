@@ -1,0 +1,252 @@
+{% extends "base.html" %} {% block title %} Agrobot A.I {% endblock %} {% block
+styleLink %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', path='index.css') }}"
+/>
+{% endblock %} {% block content %}
+<style>
+  option{
+    font-size: 17px;
+  }
+  .nav-link{
+    font-size: 20px !important;
+  }
+</style>
+<div id="image-modal" class="modal modal-dialog-centered" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">UPLOAD AN IMAGE</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p>Please upload an image in jpg, png, svg, jpeg, or webp format.</p>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary close-modal"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<main
+  class="main container-fluid d-flex flex-column justify-content-center align-items-center py-lg-5"
+>
+  <div class="loading">
+    <div class="loader"></div>
+    <p class="too-long">Please Be Patient, We Are Working On It...</p>
+  </div>
+  <div class="hide-on-load main-text-block py-1">
+    <h2 class="main-heading my-3 py-3 fw-bold">
+      <span>Crop Analysis</span> for 21st Century
+    </h2>
+    <p class="main-caption my-3 py-3 mx-auto">
+      We use the <span>best artificial intelligence</span> paradigms to detect
+      health crops, weed, seed viabiity and what not...
+    </p>
+  </div>
+
+  <div class="container hide-on-load">
+    <h5 class="start-analysis my-3 py-3">
+      <span>Start</span> Crop Analysis in <span>Three Easy</span> Steps
+    </h5>
+    <div class="predict-form-container rounded-4 p-3 px-4 container">
+      <img
+        width="400"
+        src="{{ user_image }}"
+        class="my-3 mx-auto output d-none d-md-block d-lg-block"
+        id="output"
+      />
+      <!-- Main Part of the code that speaks with the Flask API-->
+      <form
+        action="{{ url_for('predict')}}"
+        method="post"
+        enctype="multipart/form-data"
+        class="form row justify-content-evenly align-items-center px-lg-5"
+      >
+        <div class="form-component-wrap col-12 col-md-3">
+          <div
+            class="action-indicator-wrap mt-2 d-flex flex-column align-items-center justify-content-center"
+          >
+            <span
+              class="indicator-icon mt-2 mb-3 d-inline-block d-flex justify-content-center align-items-center text-white fw-bold"
+              >01</span
+            >
+            <span class="indicator-text mt-2 mb-3 text-white">Snap A Crop</span>
+          </div>
+          <div
+            class="form-component-wrap-inner rounded-3 rounded-bottom d-flex flex-column justify-content-center align-items-center"
+          >
+            <input
+              type="file"
+              name="file"
+              accept="image/*"
+              onchange="loadFile(event)"
+            />
+          </div>
+          <img
+            height="256"
+            width="256"
+            src="{{ user_image }}"
+            class="my-3 output d-md-none d-block mx-auto"
+            id="output"
+          />
+        </div>
+        <div class="form-component-wrap col-12 col-md-3">
+          <div
+            class="action-indicator-wrap mt-2 d-flex flex-column align-items-center justify-content-center"
+          >
+            <span
+              class="indicator-icon mt-2 mb-3 d-inline-block d-flex justify-content-center align-items-center text-white fw-bold"
+              >02</span
+            >
+            <span class="indicator-text mt-2 mb-3 text-white"
+              >Select Analysis</span
+            >
+          </div>
+          <div
+            class="form-component-wrap-inner rounded-3 rounded-bottom d-flex flex-column justify-content-center align-items-center"
+          >
+            <!-- The header details that the API will need-->
+            <select
+              id="use-case"
+              name="use_case"
+              class="btn form-btn"
+              onchange="validateSelection(event)"
+              style="font-size: 20px !important;"
+              required
+            >
+              <option value="">select a use case</option>
+              <option value="crop_disease">crop disease</option>
+              <option value="weeds">weed detection</option>
+              <option value="fruit_harvest">Fruit recognition</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-component-wrap col-12 col-md-3">
+          <div
+            class="action-indicator-wrap mt-2 d-flex flex-column align-items-center justify-content-center"
+          >
+            <span
+              class="indicator-icon mt-2 mb-3 d-inline-block d-flex justify-content-center align-items-center text-white fw-bold"
+              >03</span
+            >
+            <span class="indicator-text mt-2 mb-3 text-white"
+              >Get Analysis</span
+            >
+          </div>
+          <div
+            class="form-component-wrap-inner rounded-3 rounded-bottom d-flex flex-column justify-content-center align-items-center"
+          >
+            <input
+              type="number"
+              name="threshold"
+              placeholder="Threshold for prediction"
+              value="0.5"
+              required="required"
+              size="70"
+              height="40"
+              class="visually-hidden"
+            />
+            <button
+              id="submit-btn"
+              class="btn form-btn"
+              type="submit"
+              onclick="loadingState()"
+              style="font-size: 20px !important;"
+            >
+              Predict info
+            </button>
+          </div>
+        </div>
+
+        <!-- <div class="text">Select the usecase</div> -->
+      </form>
+
+      <!-- <div class="tools">
+        <a class="tools-link d-inline-block">
+          <img
+            id="image"
+            src="{{ url_for('static', path='web_images/colab.png') }}"
+            width="50"
+            class="me-3 my-3"
+          />
+        </a>
+        <a class="tools-link d-inline-block">
+          <img
+            id="image"
+            src="{{ url_for('static', path='web_images/opencv.png') }}"
+            width="50"
+            class="ms-3 my-3"
+          />
+        </a>
+      </div> -->
+    </div>
+  </div>
+</main>
+
+<script>
+  const output = document.querySelectorAll(".output");
+  const imageModal = new bootstrap.Modal(
+    document.getElementById("image-modal")
+  );
+  const loadFile = function (event) {
+    if (!event.target.files[0].type.includes("image")) {
+      imageModal.show();
+      document.getElementById("submit-btn").disabled = true;
+    } else {
+      output.forEach((output) => {
+        output.style.height = "auto";
+        output.style.width = "450px";
+        output.src = URL.createObjectURL(event.target.files[0]);
+
+        output.onload = function () {
+          URL.revokeObjectURL(output.src); // free memory
+        };
+        document.getElementById("use-case").classList.add("pop");
+        document.getElementById("submit-btn").disabled = false;
+      });
+    }
+  };
+  const loadingState = () => {
+    // get concerned el
+    const loadingEl = document.querySelector(".loading");
+    const hideEl = document.querySelectorAll(".hide-on-load");
+    const mainEl = document.querySelector(".main");
+    const tooLong = document.querySelector(".too-long");
+
+    // hide other elements except the loader
+    mainEl.style.height = "100vh";
+    loadingEl.classList.add("block");
+    hideEl.forEach((el) => (el.style.display = "none"));
+
+    // when stuff takes too long
+    setTimeout(() => (tooLong.style.display = "block"), 3000);
+
+    // loader is centered this may mean that page top won't be visible so let's scroll to top while showing our loader...
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
+  function validateSelection(e) {
+    e.target.classList.remove("pop");
+    document.getElementById("submit-btn").classList.add("pop");
+  }
+</script>
+
+{% endblock %}

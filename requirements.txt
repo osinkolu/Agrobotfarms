@@ -1,0 +1,9 @@
+-f https://download.pytorch.org/whl/torch_stable.html
+fastapi
+uvicorn
+opencv-contrib-python-headless
+#pathlib==1.0.0
+python-multipart
+aiofiles
+jinja2
+pillow

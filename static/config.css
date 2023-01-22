@@ -1,0 +1,110 @@
+/* just some variables in here */
+:root {
+  /* font sizes */
+  --font-size-xl: clamp(2rem, calc(10vw + 1rem), 3.75rem);
+  --font-size-600: 1.875rem;
+  --font-size-500: 1.5625rem;
+  --font-size-400: 1.25rem;
+
+  /* colors */
+  --primary-color: hsl(
+    152,
+    60%,
+    40%
+  ); /* stuck to the marketplace green for company consistency, this can be changed anytime */
+  --light-translucent-bg-25: hsla(100, 100, 100%, 0.25);
+  --light-translucent-bg-75: hsla(100, 100, 100%, 0.75);
+}
+
+/* Reset margin, padidng, box-sizing */
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* customize  body */
+html,
+body {
+  background-color: white;
+  /* height: 100vh; */
+  min-height: 100vh;
+}
+
+/* Customized navbar */
+.navbar {
+  /* box styling */
+  background-color: #fff;
+  box-shadow: 0 0 5px -1px #000;
+
+  /* positoning */
+  position: relative;
+  z-index: 200;
+}
+
+.navbar > .container-fluid {
+  height: 100%;
+}
+
+.navbar-nav .nav-link {
+  /* fonts */
+  color: var(--primary-color);
+  font-size: var(--font-size-500);
+
+  /* hover animation */
+  transition: opacity 250ms ease;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover {
+  opacity: 0.6 !important;
+}
+
+.navbar-brand {
+  width: 200px;
+  max-width: 18.75rem;
+  align-self: stretch;
+  background-image: url("web_images/colored_logo.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: scale(1.5);
+}
+
+.navbar-toggler {
+  border-color: var(--primary-color);
+}
+
+/* change toggler border color on click*/
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.25rem var(--primary-color);
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2841, 613, 106, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='4`' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* change offcanvas title color */
+.offcanvas-title {
+  color: var(--primary-color);
+}
+
+/* md screens 768px */
+@media (min-width: 48rem) {
+  /* edit custom properties */
+  :root {
+    --font-size-600: 1.75rem;
+    --font-size-500: 1.5rem;
+    --font-size-400: 1.125rem;
+  }
+}
+
+/* large screens */
+@media (min-width: 62rem) {
+  .navbar {
+    padding-left: 4.375rem !important;
+    padding-right: 4.375rem !important;
+  }
+}
