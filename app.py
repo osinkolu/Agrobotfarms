@@ -5,28 +5,25 @@ Originally Created on Tue Jun  8 18:37:18 2021
 @author: Professor https://www.linkedin.com/in/olufemi-victor-tolulope/
 """
 
+import json
+import tempfile
 # first import the needed fastapi libraries
 from importlib.metadata import files
-from fastapi import FastAPI, Request, File, UploadFile, Form
-from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
-
-# Unlike Flask, Fastapi needs uvicorn to handle server stuffs
-import uvicorn
 
 # Bring in OpenCV to handle the post detection Aesthetics
 import cv2
-from cv2 import FONT_HERSHEY_PLAIN, rectangle,putText
-
 # basic necessities 
 import numpy as np
-from PIL import Image
-
 #import requests to make the post
 import requests
-import tempfile
-import json
+# Unlike Flask, Fastapi needs uvicorn to handle server stuffs
+import uvicorn
+from cv2 import FONT_HERSHEY_PLAIN, putText, rectangle
+from fastapi import FastAPI, File, Form, Request, UploadFile
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from PIL import Image
 
 #setup the URL & other things i need to help interprete response.
 url = "https://agrobotfarms-crop-analysis-v1.azurewebsites.net/predict" # we could hide this in the environment but there's no fuss
@@ -39,6 +36,7 @@ _TEXT_COLOR = (0, 0, 255)  # red
 
 # import pathlib, i needed this during the test on my local pc, we can comment it out for production.
 import pathlib
+
 # quicly set poxipath for my testing.
 #temp = pathlib.PosixPath
 #pathlib.PosixPath = pathlib.WindowsPath
