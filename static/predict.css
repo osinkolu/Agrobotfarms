@@ -2,17 +2,18 @@
 
 body {
   background-image: url("web_images/lukasz-szmigiel-gmsiVT5sfl0-unsplash-min.jpg");
-  background-position: bottom;
+  background-position: cover;
+  background-repeat: no-repeat;
   /* position: relative; */
 }
 
-body::after {
+.main::after {
   content: "";
   position: absolute;
   inset: 0;
   background-color: #000;
   opacity: 0.5;
-  z-index: 1;
+  z-index: -1;
 }
 
 main {
