@@ -27,8 +27,6 @@ main {
 }
 
 .main-heading {
-  /* white text for readability */
-  color: #fff;
   font-size: var(--font-size-xl);
 }
 
@@ -37,8 +35,6 @@ main {
   font-weight: 500;
   padding-left: 10%;
   padding-right: 10%;
-  line-height: calc(10 - var(--font-size-600));
-  color: #fff;
   font-size: var(--font-size-600);
   /* margin-bottom: 0 !important; */
 }
@@ -49,7 +45,6 @@ main {
   transition: height 450ms ease;
 }
 .start-analysis {
-  color: #fff;
   font-size: var(--font-size-600);
 }
 
@@ -196,7 +191,6 @@ select.form-btn:focus {
 #submit-btn:disabled {
   background-color: grey;
   color: black;
-  cursor: "not-allowed";
 }
 
 /* modal */

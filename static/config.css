@@ -29,9 +29,8 @@
 html,
 body {
   background-color: white;
+  /* height: 100vh; */
   min-height: 100vh;
-
-  /* make sure footer always stick to boo= */
 }
 
 /* Customized navbar */
@@ -39,18 +38,10 @@ body {
   /* box styling */
   background-color: #fff;
   box-shadow: 0 0 5px -1px #000;
-  border-top: #6b7908 solid 0.625rem;
-  /* positoning
+
+  /* positoning */
   position: relative;
-  z-index: 200; */
-}
-
-.navbar-expand-lg {
-  justify-content: space-between;
-}
-
-.navbar-collapse {
-  justify-content: end;
+  z-index: 200;
 }
 
 .navbar > .container-fluid {
@@ -72,7 +63,14 @@ body {
 }
 
 .navbar-brand {
-  max-width: 9.375rem;
+  width: 200px;
+  max-width: 18.75rem;
+  align-self: stretch;
+  background-image: url("web_images/colored_logo.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: scale(1.5);
 }
 
 .navbar-toggler {
