@@ -633,7 +633,6 @@ ul.email li i {
     border-radius: 5px 5px 0 0;
     margin-top: -5px;
     position: relative;
-    z-index: 99999;
     background: #fff;
 }
 
@@ -1149,4 +1148,24 @@ ul.social_icon li a i:hover {
 .service_page .services,
 .blog_page .news {
     padding-bottom: 90px;
+}
+
+.paddingBlock {
+	padding: 20px 0;
+}
+
+.eqWrap {
+	display: flex;
+}
+
+.eq {
+	padding: 10px;
+}
+
+.eq:nth-of-type(odd) {
+	background: yellow;
+}
+
+.eq:nth-of-type(even) {
+	background: lightblue;
 }

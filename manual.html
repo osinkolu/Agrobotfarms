@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- basic -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- mobile metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <!-- site metas -->
+        <title>Agrobot</title>
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- bootstrap css -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- style css -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Responsive-->
+        <link rel="stylesheet" href="css/responsive.css">
+        <!-- fevicon -->
+        <link rel="icon" href="images/fevicon.png" type="image/gif" />
+        <!-- Tweaks for older IEs-->
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet"
+            href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+        <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+        <link rel="stylesheet" href="css/manual.css">
+        <script src="js/manual.js"></script>
+    </head>
+    <!-- body -->
+
+    <body class="main-layout">
+        <style>
+            .ext_header {
+                font-size: 24px;
+                color: #6b7908;
+                line-height: 30px;
+                font-weight: bold;
+                display: block;
+                text-transform: uppercase;
+            }
+
+            figure {
+                text-align: center;
+            }
+
+            .services_box h3 {
+                font-size: 20px !important;
+            }
+
+            .services_box figure img{
+                margin-top: 15px !important;
+                height: 130px;
+            }
+
+            img{
+                max-width: 60%;
+
+                /* max-height: 200px; */
+            }
+        </style>
+        <!-- header -->
+        <header class="header-area">
+            <div class="container-fluid">
+                <div class="row d_flex">
+                    <div class=" col-md-2 col-sm-3">
+                        <div class="logo m-3">
+                            <!-- <a href="index.html">Agro<span>Pro</span></a> -->
+                            <a href="/">
+                                <img src="images/logo.png" width="200"
+                                    alt="Agrobot Logo" srcset="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-9">
+                        <div class="navbar-area">
+                            <nav class="site-navbar">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a target="_blank" href="wiki.html">Wiki
+                                        </a></li>
+                                    <li><a target="_blank"
+                                            href="https://market.agrobotfarms.com/">Marketplace</a></li>
+                                    <li><a class="active"
+                                            href="extensions.html">Extensions</a></li>
+                                    <li><a href="detect.html">Detect</a></li>
+                                    <li><a href="analysis.html">Analysis</a></li>
+                                </ul>
+                                <button class="nav-toggler">
+                                    <span></span>
+                                </button>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-md-2 padd_0 d_none">
+                        <ul class="email text_align_right">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- services -->
+        <div class="services mt-5">
+            <div class="container">
+                <div class="container" style="line-height: 2.5em;">
+                    <center>
+                        <form id="address-form" action="" method="get" autocomplete="off">
+                            <p class="title" style="text-align: left;">Sample address form for Nigeria</p>
+                            <p class="note" style="text-align: left;"><em>* = required field</em></p>
+                            <label class="full-field">
+                              <!-- Avoid the word "address" in id, name, or label text to avoid browser autofill from conflicting with Place Autocomplete. Star or comment bug https://crbug.com/587466 to request Chromium to honor autocomplete="off" attribute. -->
+                              <span class="form-label">Deliver to*</span>
+                              <input
+                                id="ship-address"
+                                name="ship-address"
+                                required
+                                autocomplete="off"
+                              />
+                            </label>
+                            <label class="full-field">
+                              <span class="form-label">Apartment, unit, suite, or floor #</span>
+                              <input id="address2" name="address2" />
+                            </label>
+                            <label class="full-field">
+                              <span class="form-label">City*</span>
+                              <input id="locality" name="locality" required />
+                            </label>
+                            <label class="slim-field-left">
+                              <span class="form-label">State/Province*</span>
+                              <input id="state" name="state" required />
+                            </label>
+                            <label class="slim-field-right" for="postal_code">
+                              <span class="form-label">Postal code*</span>
+                              <input id="postcode" name="postcode" required />
+                            </label>
+                            <label class="full-field">
+                              <span class="form-label">Country/Region*</span>
+                              <input id="country" name="country" required />
+                            </label>
+                            <button type="button" class="my-button">Save address</button>
+                      
+                            <!-- Reset button provided for development testing convenience.
+                        Not recommended for user-facing forms due to risk of mis-click when aiming for Submit button. -->
+                            <input type="reset" value="Clear form" />
+                          </form>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+        <!--  footer -->
+    <footer>
+        <div class="footer mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="hedingh3  text_align_left">
+                            <h3>Newsletter</h3>
+                            <form id="colof" class="form_subscri">
+                                <input class="newsl" placeholder="Enter Email" type="text" name="Email">
+                                <button class="subsci_btn"><img src="images/new.png" alt="#" /></button>
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="hedingh3 text_align_center">
+                            <h3> Explore</h3>
+                            <ul class="menu_footer">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="wiki.html">Wiki</a></li>
+                                <li><a href="https://market.agrobotfarms.com/">Marketplace</a></li>
+                                <li><a href="extensions.html">Extensions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="hedingh3  flot_right text_align_left">
+                            <h3>ContacT</h3>
+                            <ul class="top_infomation">
+                                <li><i class="fa fa-phone" aria-hidden="true"></i>
+                                    (+234) 8111109159
+                                </li>
+                                <li><i class="fa fa-phone" aria-hidden="true"></i>
+                                    (+234) 81111 09159
+                                </li>
+                                <li><i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <a href="Javascript:void(0)">hello@agrobotfarms.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <div class="container">
+                    <div class="row d_flex">
+                        <div class="col-md-8">
+                            <p>© <span id="year"></span> All Rights Reserved.</a>
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="social_icon ">
+                                <li><a href="Javascript:void(0)"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                </li>
+                                <li><a href="Javascript:void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </li>
+                                <li><a href="Javascript:void(0)"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+    <!-- Javascript files-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        var date = new Date();
+        var date = date.getFullYear();
+
+        var element = document.getElementById('year');
+        element.innerText = date;
+    </script>
+      <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initAutocomplete&libraries=places&v=weekly"
+      defer
+    ></script>
+    </body>
+</html>
