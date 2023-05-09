@@ -84,6 +84,10 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
+        button[type="submit"], .manual_btn {
+            position: relative;
+            left: 30%;
+        }
     </style>
     <div class="full_bg">
         <!-- header -->
@@ -108,9 +112,8 @@
                                         </a></li>
                                     <li><a target="_blank"
                                             href="https://market.agrobotfarms.com/">Marketplace</a></li>
-                                    <li><a class="active"
-                                            href="extensions.html">Extensions</a></li>
-                                    <li><a href="detect.html">Detect</a></li>
+                                    <li><a href="extensions.html">Extensions</a></li>
+                                    <li><a class="active" href="detect.html">Detect</a></li>
                                     <li><a href="analysis.html">Analysis</a></li>
                                 </ul>
                                 <button class="nav-toggler">
@@ -146,18 +149,16 @@
                             <figure><img style="max-width: 100%;"
                                     src="images/robot.jpg" alt="#"></figure>
                             <div class="veget">
-                                <a class="read_more" href="#">Automatic</a>
+                                <a class="read_more automatic_button" href="#">Automatic</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="services_box_main">
-                        <div class="services_box text_align_left">
-                            <figure><img src="images/type.jpg" alt="#"></figure>
-                            <div class="veget">
-                                <a class="read_more" target="_blank" href="manual.html">MANUAL</a>
-                            </div>
+                    <div class="services_box text_align_left" id="services-box">
+                        <figure><img src="images/type.jpg" alt="#"></figure>
+                        <div class="veget">
+                            <a class="read_more manual_btn" href="#" onclick="showForm()">Manual</a>
                         </div>
                     </div>
                 </div>
@@ -258,7 +259,7 @@
     </script>
     <script>
         $(document).ready(function() {
-            $('.read_more').click(function() {
+            $('.automatic_button').click(function() {
                 $('#mainContent').hide();
                 $('#preloader').show();
                 $('.services').css('height', '600px');
@@ -267,16 +268,69 @@
                         var latitude = position.coords.latitude;
                         var longitude = position.coords.longitude;
 
-                        // Send AJAX request to API endpoint
-                        $.ajax({
-                            url: "https://croprecommendation-zc6ytsujkq-uw.a.run.app/data_dump",
-                            type: "POST",
-                            data: JSON.stringify({ lat: latitude, lon: longitude }),
-                            contentType: "application/json; charset=utf-8",
-                            dataType: "json",
+                        callAjax(latitude, longitude);
 
-                            success: function(data) {
-                                var body = `<div class="col-md-6">
+                    });
+                } else {
+                    alert("Geolocation is not supported by this browser.");
+                }
+            });
+        });
+
+    </script>
+
+        <script>
+            function showForm() {
+                const servicesBox = document.getElementById('services-box');
+
+                const form = document.createElement('form');
+                const labelLat = document.createElement('label');
+                const inputLat = document.createElement('input');
+                const labelLng = document.createElement('label');
+                const inputLng = document.createElement('input');
+                const submitBtn = document.createElement('button');
+
+                form.setAttribute('onsubmit', 'sendAjax(event)');
+                labelLat.innerText = 'Latitude:';
+                labelLat.classList.add('form-label');
+                inputLat.classList.add('form-control');
+                inputLat.setAttribute('type', 'text');
+                inputLat.setAttribute('required', 'required');
+                inputLat.setAttribute('name', 'latitude');
+                labelLng.innerText = 'Longitude:';
+                labelLng.classList.add('form-label');
+                inputLng.classList.add('form-control');
+                inputLng.setAttribute('type', 'text');
+                inputLng.setAttribute('required', 'required');
+                inputLng.setAttribute('name', 'longitude');
+                submitBtn.classList.add('read_more');
+                submitBtn.classList.add('mt-4', 'mb-4');
+                submitBtn.setAttribute('type', 'submit');
+                submitBtn.innerText = 'Submit';
+
+                form.appendChild(labelLat);
+                form.appendChild(inputLat);
+                form.appendChild(labelLng);
+                form.appendChild(inputLng);
+                form.appendChild(submitBtn);
+
+                servicesBox.innerHTML = '';
+                servicesBox.classList.add('card', 'p-3')
+                servicesBox.appendChild(form);
+            }
+        </script>
+
+    <script>
+        function callAjax(latitude, longitude) {
+            $.ajax({
+                url: "https://croprecommendation-zc6ytsujkq-uw.a.run.app/data_dump",
+                type: "POST",
+                data: JSON.stringify({ lat: parseInt(latitude), lon: parseInt(longitude) }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+
+                success: function(data) {
+                    var body = `<div class="col-md-6">
                             <div class="card result">
                                 <div class="card-header">
                                     Climate Data
@@ -300,6 +354,15 @@
                             </div>
                         </div>
                         <div class="col-md-6">
+                        <div class="card mb-3 result">
+                                <div class="card-header">
+                                    Details (Input)
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Latitude: ` + data['#### Soil ####'][0].Lat + ` (` + latitude + `)</p>
+                                    <p class="card-text">Longitude: ` + data['#### Soil ####'][0].Long + ` (` + longitude + `)</p>
+                                </div>
+                            </div>
                             <div class="card result">
                                 <div class="card-header">
                                     Soil Data
@@ -320,27 +383,33 @@
                             </div>
                         </div>`;
 
-                                $('#mainResult').html(body);
-                                $('#preloader').hide();
-                                $('#mainResult').css('display', 'flex');
-                                $('.services').css('height', 'auto');
+                    $('#mainResult').html(body);
+                    $('#preloader').hide();
+                    $('#mainResult').css('display', 'flex');
+                    $('.services').css('height', 'auto');
 
-                                console.log(data);
-                            },
-                            error: function(xhr, status, error) {
-                                console.error(status + ": " + error);
-                                $('#mainContent').show();
-                                $('#preloader').hide();
-                                $('.services').css('height', 'auto');
-                            }
-                        });
-                    });
-                } else {
-                    console.error("Geolocation is not supported by this browser.");
+                    console.log(data);
+                },
+                error: function(xhr, status, error) {
+                    console.error(status + ": " + error);
+                    $('#mainContent').show();
+                    $('#preloader').hide();
+                    $('.services').css('height', 'auto');
                 }
             });
-        });
+        }
 
+        function sendAjax(event) {
+            event.preventDefault();
+            $('#mainContent').hide();
+            $('#preloader').show();
+            $('.services').css('height', '600px');
+            const formData = new FormData(event.target);
+            const latitude = formData.get('latitude');
+            const longitude = formData.get('longitude');
+
+            callAjax(latitude, longitude);
+        }
     </script>
         </body>
 </html>
