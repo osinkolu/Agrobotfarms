@@ -3,7 +3,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/your-username/public_html/
+    - export DEPLOYPATH=/home/agrocrig/public_html/
     - /bin/cp -R css $DEPLOYPATH
     - /bin/cp -R fonts $DEPLOYPATH
     - /bin/cp -R images $DEPLOYPATH
