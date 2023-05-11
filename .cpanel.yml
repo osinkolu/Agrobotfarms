@@ -1,0 +1,20 @@
+### Olufemi Victor Tolulope 10:00AM 11/05/2023
+##### THIS ALLOWS ME TO DEPLOY THE SITE FROM A GIT REPO ######
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/your-username/public_html/
+    - /bin/cp -R css $DEPLOYPATH
+    - /bin/cp -R fonts $DEPLOYPATH
+    - /bin/cp -R images $DEPLOYPATH
+    - /bin/cp -R js $DEPLOYPATH
+    - /bin/cp -R analysis.html $DEPLOYPATH
+    - /bin/cp -R cassava.html $DEPLOYPATH
+    - /bin/cp -R detect.html $DEPLOYPATH
+    - /bin/cp -R extensions.html $DEPLOYPATH
+    - /bin/cp -R index.html $DEPLOYPATH
+    - /bin/cp -R maize.html $DEPLOYPATH
+    - /bin/cp -R manual.html $DEPLOYPATH
+    - /bin/cp -R papaya.html $DEPLOYPATH
+    - /bin/cp -R rice.html $DEPLOYPATH
+    - /bin/cp -R wiki.html $DEPLOYPATH
