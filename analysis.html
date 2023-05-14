@@ -66,6 +66,9 @@
 
             /* max-height: 200px; */
         }
+        .hidden {
+            display: none;
+        }
     </style>
     <!-- header -->
     <header class="header-area">
@@ -87,9 +90,9 @@
                                 <li><a target="_blank" href="wiki.html">Wiki
                                     </a></li>
                                 <li><a target="_blank" href="https://market.agrobotfarms.com/">Marketplace</a></li>
-                                <li><a class="active" href="extensions.html">Extensions</a></li>
+                                <li><a href="extensions.html">Extensions</a></li>
                                 <li><a href="detect.html">Detect</a></li>
-                                <li><a href="analysis.html">Analysis</a></li>
+                                <li><a class="active" href="analysis.html">Analysis</a></li>
                             </ul>
                             <button class="nav-toggler">
                                 <span></span>
@@ -125,35 +128,28 @@
                 <div class="" style="margin-top:50px">
                     <div class="rounded d-flex justify-content-center">
                         <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-light">
+                            <form onsubmit="sendImageForPrediction(event)">
                             <div class="p-4">
-                                <div class="mb-5">
-                                    <select class="form-select mb-3" aria-label="Default select example">
-                                        <option selected>Select</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                <div class="mb-3">
+                                    <select required class="form-select mb-3" name="use_case" aria-label="Default select example">
+                                        <option disabled>Select</option>
+                                        <option value="crop_disease">Crop Disease</option>
+<!--                                        <option value="2">Two</option>-->
+<!--                                        <option value="3">Three</option>-->
                                       </select>
                                 </div>
-                                <!--<div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                                    <input type="email" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="name@example.com">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleFormControlTextarea1" class="form-label">Example </label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                </div><!-->
                                 <div class="mb-5">
                                     <label for="formFile" class="form-label">Input Picture</label>
-                                    <input class="form-control" type="file" id="formFile">
+                                    <input required class="form-control" type="file" name="image" id="formFile" onchange="validateImageInput()" alt="aa">
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit</button>
+                                <button type="submit" class="read_more" style="width: 100%;position: relative; left: 20%;">Submit</button>
                             </div>
+                            </form>
                         </div>
                         <div class="col-md-4 d-sm-none d-md-block">
-                            <img src="https://source.unsplash.com/collection/190727/1000x900"
+                            <img src="images/no_image.webp" id="imageInput" style="object-position: center; object-fit: cover;"
                                 class="d-block w-100 h-100 img-fluid" alt="image">
                         </div>
                     </div>
@@ -161,76 +157,10 @@
             </div>
 
             <!--Content-->
-            <div class="container mb-5">
-                <div class="container">
-                    <div class="container mb-5" style="text-align: center;">
-                        <img src="images/corn.jpg" alt="#">
-                    </div>
-                    <p><strong>Label:</strong> Corn leaf blight</p>
-                    <p><strong>Confidence:</strong> 0.93027265</p>
-                    <h5 style="text-align: center;">About</h5>
-                    <p>Northern corn leaf blight or Turcicum leaf blight is a foliar disease of corn caused by
-                        Exserohilum turcica, the anarmorph of the ascomycete Setospheria turcica. With its
-                        characteristics cigar-shaped lesions, this diseases can cause significant yield loss in
-                        susceptible corn hybrids.</p>
-                    <h5 style="text-align: center;">Latest on curing Corn leaf blight</h5>
-                    <p>Treating northern corn leaf blight involves using fungicides. For most home gardeners this step
-                        isn't needed, but if you have a bad infection, you may want to try this chemical treatment. The
-                        infection usually begins around the time of silking, and this is when the fungicide should be
-                        applied.</p>
+            <div class="container mb-5 hidden" id="mainResultContainer">
+                <div class="container" id="result">
+
                 </div>
-            </div>
-
-
-            <div class="container pt-5">
-                <h1 style="font-weight: 500;">Soil data</h1>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="services_box text_align_center" style="background-color: rgb(231, 99, 99); padding: 30px;">
-                            <h3 class="text-white">Ca</h3>
-                            <h2 class="text-white">0.0</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="services_box text_align_center" style="background-color: #d4d3d2; padding: 30px;">
-                                <h3 class="text-white">Mg</h3>
-                                <h2 class="text-dark">0.0</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="services_box_main">
-                            <div class="services_box text_align_center" style="background-color: rgb(223, 185, 223); padding: 30px;">
-                                <h3 class="text-white">K</h3>
-                                <h2 class="text-white">0.0</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="services_box_main">
-                            <div class="services_box text_align_center" style="background-color: #121111; padding: 30px;">
-                                <h3 class="text-white">P</h3>
-                                <h2 class="text-white">26.25</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="services_box_main">
-                            <div class="services_box text_align_center" style="background-color: green; padding: 30px;">
-                                <h3 class="text-white">Farm</h3>
-                                <h2 class="text-white">Odifarm</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="services_box_main">
-                            <div class="services_box text_align_center" style="background-color: #da8c33; padding: 30px;">
-                                <h3 class="text-white">Cu</h3>
-                                <h2 class="text-white">0.0</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
         </div>
@@ -318,6 +248,77 @@
         var element = document.getElementById('year');
         element.innerText = date;
     </script>
+<script>
+    function validateImageInput() {
+        const imageInput = document.querySelector('input[name="image"]');
+
+        if (imageInput.files && imageInput.files[0] && imageInput.files[0].type.startsWith("image/")) {
+            const reader = new FileReader();
+
+            reader.addEventListener("load", () => {
+                const img = document.querySelector("#imageInput");
+                img.src = reader.result;
+
+                img.parentNode.classList.remove("hidden");
+            });
+
+            reader.readAsDataURL(imageInput.files[0]);
+        }
+    }
+
+    function sendImageForPrediction(event) {
+        event.preventDefault();
+
+        const form = event.target;
+
+        const imageInput = form.querySelector('input[name="image"]');
+        if (!imageInput || !imageInput.files || !imageInput.files[0] || !imageInput.files[0].type.startsWith("image/")) {
+            console.log("Please select an image file.");
+            return;
+        }
+
+        const useCaseInput = form.querySelector('select[name="use_case"]');
+        const useCaseValue = useCaseInput ? useCaseInput.value : "";
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://cropanalysis-zc6ytsujkq-uw.a.run.app/analyze");
+        xhr.setRequestHeader("threshold", "0.5");
+        xhr.setRequestHeader("use_case", useCaseValue);
+        xhr.setRequestHeader("language", "en");
+
+        xhr.responseType = "json";
+
+        xhr.addEventListener("load", () => {
+            if (xhr.status === 200) {
+                const data = xhr.response;
+
+                const formData = `<p><strong>Label:</strong> ` + data.main_data.label + `</p>
+                    <p><strong>Confidence:</strong> ` + (data.main_data.confidence * 100).toFixed(2) + `%</p>
+                    <h5 style="text-align: center;">About</h5>
+                    <p>` + data.more_details.about + `</p>
+                    <h5 style="text-align: center;">` + data.more_details.extra_topic + `</h5>
+                    <p>` + data.more_details.topic_description + `</p>`;
+
+
+                const mainResultContainer = document.querySelector('#mainResultContainer');
+                const resultDiv = document.querySelector('#result');
+
+                resultDiv.innerHTML = formData;
+
+                mainResultContainer.scrollIntoView({ behavior: 'smooth' });
+                mainResultContainer.style.display = 'block';
+
+                console.log("Prediction result:", xhr.response);
+            } else {
+                alert('Unable to Process Your Request')
+            }
+        });
+
+        xhr.send(imageInput.files[0]);
+    }
+
+
+</script>
 </body>
 
 </html>
