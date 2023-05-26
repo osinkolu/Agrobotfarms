@@ -281,7 +281,7 @@
         const useCaseValue = useCaseInput ? useCaseInput.value : "";
 
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://cropanalysis-zc6ytsujkq-uw.a.run.app/analyze");
+        xhr.open("POST", "https://crop-analysis-gzhmfjnevq-uc.a.run.app/analyze");
         xhr.setRequestHeader("threshold", "0.5");
         xhr.setRequestHeader("use_case", useCaseValue);
         xhr.setRequestHeader("language", "en");
@@ -313,8 +313,14 @@
                 alert('Unable to Process Your Request')
             }
         });
+        var data = new FormData();
+        data.append("image", imageInput.files[0]);
+        data.append("threshold", "0.5");
+        data.append("usecase", "crop_disease");
+        data.append("language", "en");
 
-        xhr.send(imageInput.files[0]);
+       // xhr.send(imageInput.files[0]);
+       xhr.send(data);
     }
 
 
