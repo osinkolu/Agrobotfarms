@@ -247,6 +247,28 @@ button {
     padding-top: 0px;
 }
 
+#loading {
+    width: 2rem;
+    height: 2rem;
+    border: 5px solid #f3f3f3;
+    border-top: 6px solid rgb(36, 121, 82);
+    border-radius: 100%;
+    margin: auto;
+    visibility: hidden;
+    animation: spin 1s infinite linear;
+}
+#loading.display {
+    visibility: visible;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .d_flex {
     display: flex;
     align-items: center;
@@ -255,6 +277,7 @@ button {
 
 .read_more {
     font-size: 16px;
+    margin-bottom: 10px;
     background: #323232;
     max-width: 203px;
     width: 100%;
@@ -267,6 +290,10 @@ button {
     border-radius: 5px;
     text-transform: uppercase;
     font-weight: bold;
+}
+
+.disable {
+    display: none;
 }
 
 .read_more:hover {
