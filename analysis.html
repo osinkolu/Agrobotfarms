@@ -144,7 +144,9 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <button type="submit" class="read_more" style="width: 100%;position: relative; left: 20%;">Submit</button>
+                                <button type="submit" id="submitInput" class="read_more" style="width: 100%;position: relative; left: 20%;">Submit</button>
+                                <div id="loading"></div>
+                                <!--Showing output-->
                             </div>
                             </form>
                         </div>
@@ -249,6 +251,33 @@
         element.innerText = date;
     </script>
 <script>
+
+        const btn = document.querySelector("#submitInput");
+
+        // adding event listener to button
+        btn.addEventListener("click", validateImageInput);
+
+        // selecting loading div
+        const loader = document.querySelector("#loading");
+
+        // showing loading
+        function displayLoading() {
+            loader.classList.add("display");
+            btn.classList.add("disable");
+            // to stop loading after some time
+            setTimeout(() => {
+                loader.classList.remove("display");
+            }, 10000);
+        }
+
+        // hiding loading 
+        function hideLoading() {
+            loader.classList.remove("display");
+            btn.classList.remove("disable");
+        }
+
+
+
     function validateImageInput() {
         const imageInput = document.querySelector('input[name="image"]');
 
@@ -268,6 +297,8 @@
 
     function sendImageForPrediction(event) {
         event.preventDefault();
+
+        displayLoading();
 
         const form = event.target;
 
@@ -302,6 +333,8 @@
 
                 const mainResultContainer = document.querySelector('#mainResultContainer');
                 const resultDiv = document.querySelector('#result');
+
+                hideLoading();
 
                 resultDiv.innerHTML = formData;
 
