@@ -113,9 +113,9 @@
                                     <li><a target="_blank"
                                             href="https://market.agrobotfarms.com/">Marketplace</a></li>
                                     <li><a href="extensions.html">Extensions</a></li>
-                                    <li><a class="active" href="detect.html">Detect</a></li>
+                                    <li><a  href="detect.html">Detect</a></li>
                                     <li><a href="analysis.html">Analysis</a></li>
-                                    <li><a href="charts.html">Charts</a></li> 
+                                    <li><a class="active" href="charts.html">Charts</a></li> 
                                 </ul>
                                 <button class="nav-toggler">
                                     <span></span>
@@ -139,27 +139,111 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="titlepage text_align_left">
-                        <h2 class="mb-3">DETECT</h2>
+                        <h2 class="mb-5">Usage Charts</h2>
                     </div>
                 </div>
             </div>
             <div class="row" id="mainContent">
-                <div class="col-md-6">   
-                    <div class="services_box_main">
-                        <div class="services_box text_align_left">
-                            <figure><img style="max-width: 100%;"
-                                    src="images/robot.jpg" alt="#"></figure>
-                            <div class="veget">
-                                <a class="read_more automatic_button" href="#">Automatic</a>
-                            </div>
+                <div class="col-md-6 mb-5">   
+                    <div class="services_box_man">
+                        <div class="services_bo text_align_left">
+                            <iframe
+                            src="https://thingspeak.com/channels/2219415/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"
+                            height="260px"
+                            width="450px"
+                            class="rounded border-solid border border-#cccccc-900"
+                        ></iframe>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="services_box text_align_left" id="services-box">
-                        <figure><img src="images/type.jpg" alt="#"></figure>
-                        <div class="veget">
-                            <a class="read_more manual_btn" href="#" onclick="showForm()">Manual</a>
+
+                <div class="col-md-6 mb-5">   
+                    <div class="services_box_man">
+                        <div class="services_bo text_align_left">
+                            <iframe
+                            src="https://thingspeak.com/channels/2219415/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"
+                            height="260px"
+                            width="450px"
+                            class="rounded border-solid border border-#cccccc-900"
+                        ></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-5">   
+                    <div class="services_box_man">
+                        <div class="services_bo text_align_left">
+                            <iframe
+                            src="https://thingspeak.com/channels/2219415/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"
+                            height="260px"
+                            width="450px"
+                            class="rounded border-solid border border-#cccccc-900"
+                        ></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-5">   
+                    <div class="services_box_man">
+                        <div class="services_bo text_align_left">
+                            <iframe
+                            src="https://thingspeak.com/channels/2219415/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"
+                            height="260px"
+                            width="450px"
+                            class="rounded border-solid border border-#cccccc-900"
+                        ></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-5">   
+                    <div class="services_box_man">
+                        <div class="services_bo text_align_left">
+                            <iframe
+                            src="https://thingspeak.com/channels/2219415/charts/5?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"
+                            height="260px"
+                            width="450px"
+                            class="rounded border-solid border border-#cccccc-900"
+                        ></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-5">   
+                    <div class="services_box_man">
+                        <div class="services_bo text_align_left">
+                            <iframe
+                            src="https://thingspeak.com/channels/2219415/charts/6?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"
+                            height="260px"
+                            width="450px"
+                            class="rounded border-solid border border-#cccccc-900"
+                        ></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-5">   
+                    <div class="services_box_man">
+                        <div class="services_bo text_align_left">
+                            <iframe
+                            src="https://thingspeak.com/channels/2219415/charts/7?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"
+                            height="260px"
+                            width="450px"
+                            class="rounded border-solid border border-#cccccc-900"
+                        ></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-5">   
+                    <div class="services_box_man">
+                        <div class="services_bo text_align_left">
+                            <iframe
+                            src="https://thingspeak.com/channels/2219415/maps/channel_show"
+                            height="260px"
+                            width="450px"
+                            class="rounded border-solid border border-#cccccc-900"
+                        ></iframe>
                         </div>
                     </div>
                 </div>
@@ -278,139 +362,6 @@
             });
         });
 
-    </script>
-
-        <script>
-            function showForm() {
-                const servicesBox = document.getElementById('services-box');
-
-                const form = document.createElement('form');
-                const labelLat = document.createElement('label');
-                const inputLat = document.createElement('input');
-                const labelLng = document.createElement('label');
-                const inputLng = document.createElement('input');
-                const submitBtn = document.createElement('button');
-
-                form.setAttribute('onsubmit', 'sendAjax(event)');
-                labelLat.innerText = 'Latitude:';
-                labelLat.classList.add('form-label');
-                inputLat.classList.add('form-control');
-                inputLat.setAttribute('type', 'text');
-                inputLat.setAttribute('required', 'required');
-                inputLat.setAttribute('name', 'latitude');
-                labelLng.innerText = 'Longitude:';
-                labelLng.classList.add('form-label');
-                inputLng.classList.add('form-control');
-                inputLng.setAttribute('type', 'text');
-                inputLng.setAttribute('required', 'required');
-                inputLng.setAttribute('name', 'longitude');
-                submitBtn.classList.add('read_more');
-                submitBtn.classList.add('mt-4', 'mb-4');
-                submitBtn.setAttribute('type', 'submit');
-                submitBtn.innerText = 'Submit';
-
-                form.appendChild(labelLat);
-                form.appendChild(inputLat);
-                form.appendChild(labelLng);
-                form.appendChild(inputLng);
-                form.appendChild(submitBtn);
-
-                servicesBox.innerHTML = '';
-                servicesBox.classList.add('card', 'p-3')
-                servicesBox.appendChild(form);
-            }
-        </script>
-
-    <script>
-        function callAjax(latitude, longitude) {
-            $.ajax({
-                url: "https://crop-recommendation-gzhmfjnevq-uc.a.run.app/data_dump",
-                type: "POST",
-                data: JSON.stringify({ lat: parseInt(latitude), lon: parseInt(longitude) }),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-
-                success: function(data) {
-                    var body = `<div class="col-md-6">
-                            <div class="card result">
-                                <div class="card-header">
-                                    Climate Data
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Location: ` + data['#### climate ####'].name + `</h5>
-                                    <p class="card-text">Temperature: `+ data['#### climate ####'].main.temp +`</p>
-                                    <p class="card-text">Humidity: `+ data['#### climate ####'].main.humidity +`</p>
-                                    <p class="card-text">Wind Speed: ` + data['#### climate ####'].wind.speed +`</p>
-                                    <p class="card-text">Pressure: ` + data['#### climate ####'].main.pressure + `</p>
-                                    <p class="card-text">Weather Description: ` + data['#### climate ####'].weather[0].description + `</p>
-                                </div>
-                            </div>
-                            <div class="card mt-3 result">
-                                <div class="card-header">
-                                    Note
-                                </div>
-                                <div class="card-body">
-                                    <p>` + data['#### Description ####'] + `</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                        <div class="card mb-3 result">
-                                <div class="card-header">
-                                    Details (Input)
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text">Latitude: ` + data['#### Soil ####'][0].Lat + ` (` + latitude + `)</p>
-                                    <p class="card-text">Longitude: ` + data['#### Soil ####'][0].Long + ` (` + longitude + `)</p>
-                                </div>
-                            </div>
-                            <div class="card result">
-                                <div class="card-header">
-                                    Soil Data
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Project: ` + data['#### Soil ####'][0].project + `</h5>
-                                    <h5 class="card-title">Farm: ` + data['#### Soil ####'][0].Farm + `</h5>
-                                    <p class="card-text">pH: ` + data['#### Soil ####'][0].pH + `</p>
-                                    <p class="card-text">P: ` + data['#### Soil ####'][0].P + `</p>
-                                    <p class="card-text">Ca: ` + data['#### Soil ####'][0].Ca + `</p>
-                                    <p class="card-text">Cu: ` + data['#### Soil ####'][0].Cu + `</p>
-                                    <p class="card-text">Mg: ` + data['#### Soil ####'][0].Mg + `</p>
-                                    <p class="card-text">Mn: ` + data['#### Soil ####'][0].Mn + `</p>
-                                    <p class="card-text">N: ` + data['#### Soil ####'][0].N + `</p>
-                                    <p class="card-text">Na: ` + data['#### Soil ####'][0].Na + `</p>
-                                    <p class="card-text">Zn: ` + data['#### Soil ####'][0].Zn + `</p>
-                                </div>
-                            </div>
-                        </div>`;
-
-                    $('#mainResult').html(body);
-                    $('#preloader').hide();
-                    $('#mainResult').css('display', 'flex');
-                    $('.services').css('height', 'auto');
-
-                    console.log(data);
-                },
-                error: function(xhr, status, error) {
-                    console.error(status + ": " + error);
-                    $('#mainContent').show();
-                    $('#preloader').hide();
-                    $('.services').css('height', 'auto');
-                }
-            });
-        }
-
-        function sendAjax(event) {
-            event.preventDefault();
-            $('#mainContent').hide();
-            $('#preloader').show();
-            $('.services').css('height', '600px');
-            const formData = new FormData(event.target);
-            const latitude = formData.get('latitude');
-            const longitude = formData.get('longitude');
-
-            callAjax(latitude, longitude);
-        }
     </script>
 
         </body>
