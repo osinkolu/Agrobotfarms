@@ -1,5 +1,5 @@
 const assets = [
-    "/", "/css", "index.html", "sw-register.js",] ;
+    "/", "/css", "/fonts", "index.html", "analysis.html", "charts.html", "detect.html", "extensions.html", "maize.html", "manual.html", "wiki.html", "sw-register.js",] ;
 
 self.addEventListener("install", event => { //we listen for the install event
     event.waitUntil( // in case where our cache is downloading large resources, the browser should wait until completion before the SW goes down
