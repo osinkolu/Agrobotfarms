@@ -8,18 +8,18 @@
     "display": "standalone",
     "icons": [
        {
-           "src": "icons/icon-512.jpg",
-           "sizes": "512x512",
+           "src": "images/icon-276.png",
+           "sizes": "276x276",
            "type": "image/png"
        },
        {
-        "src": "icons/icon-1024.jpg",
-        "sizes": "1024x1024",
+        "src": "images/icon-128.png",
+        "sizes": "128x128",
         "type": "image/png"
         },
         {
-            "src": "icons/maskable.png",
-            "sizes": "512x512",
+            "src": "images/icon-192.png",
+            "sizes": "192x192",
             "type": "image/png",
             "purpose": "maskable"
         }
